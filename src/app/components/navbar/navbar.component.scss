@@ -1,0 +1,19 @@
+#navbar-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background: var(--bg);
+    margin-bottom: 10px;
+    padding: 0 5px;
+}
+
+#site-logo-div {
+    cursor: pointer;
+}
+
+#story {
+    padding: 0 10px;
+    font-size: 16px;
+    color: var(--color);
+    cursor: pointer;
+    align-self: center;
+}

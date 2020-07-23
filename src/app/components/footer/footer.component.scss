@@ -1,0 +1,22 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color);
+}
+
+.footer-link a {
+    color: var(--color);
+    background-image: linear-gradient(to bottom, transparent 65%, #fcf113 0);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    transition: background-size .4s ease;
+}
+
+.footer-link a:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+}

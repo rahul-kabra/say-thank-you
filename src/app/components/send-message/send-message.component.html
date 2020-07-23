@@ -1,0 +1,158 @@
+<div class="container">
+    <app-navbar></app-navbar>
+
+    <div id="send-guide-div">
+        <p>Wondering where to start? Don't worry any further, because we've got you covered. 😇 We are here to make
+            things
+            simpler and a little convenient for u. 🥳 Only thing you need to do is think of a beautiful and heartfelt
+            message
+            to convey your thanks to someone who deserves it. 😄
+            Just in case, if that seems like a toughie, we are here to bail you out of that as well. 🤝 We've got some
+            wonderful templates set up which you can either use as is or personalize it if you want to add a dash of
+            personal
+            touch to it. 🤩</p>
+        <p>Without any futher ado, let's conjure up some magic and be thankful to someone today. 😁</p>
+    </div>
+
+    <hr class="flair">
+
+    <div class="form-input custom-top-margin" *ngIf="requestStatus===false">
+        <form [formGroup]="sendForm">
+
+            <div id="from-person-div" class="input-div-styles">
+                <p>{{ fromPersonInfo }}</p>
+                <div class="floating">
+                    <input required id="fromPerson" class="floating-input" name="fromPerson"
+                        formControlName="fromPerson" type="text" placeholder="Enter the name..." />
+                    <label for="fromPerson" class="floating-label" data-content="Enter the name..."></label>
+                </div>
+
+                <p
+                    *ngIf="sendForm.controls['fromPerson'].invalid && (sendForm.controls['fromPerson'].dirty || sendForm.controls['fromPerson'].touched)">
+                    {{ fromPersonNoData }}
+                </p>
+
+                <p
+                    *ngIf="sendForm.controls['fromPerson'].valid && (sendForm.controls['fromPerson'].dirty || sendForm.controls['fromPerson'].touched)">
+                    {{ fromPersonData }}
+                </p>
+            </div>
+
+            <hr class="center-square">
+
+            <div id="to-person-div" class="input-div-styles">
+                <p>{{ toPersonInfo }}</p>
+                <div class="floating">
+                    <input required id="toPerson" class="floating-input" name="toPerson" formControlName="toPerson"
+                        type="text" placeholder="Enter the name...">
+                    <label for="toPerson" class="floating-label" data-content="Enter the name..."></label>
+                </div>
+
+                <p
+                    *ngIf="sendForm.controls['toPerson'].invalid && (sendForm.controls['toPerson'].dirty || sendForm.controls['toPerson'].touched)">
+                    {{ toPersonNoData }}
+                </p>
+
+                <p
+                    *ngIf="sendForm.controls['toPerson'].valid && (sendForm.controls['toPerson'].dirty || sendForm.controls['toPerson'].touched)">
+                    {{ toPersonData }}
+                </p>
+            </div>
+
+            <hr class="center-square">
+
+            <div id="challenge-question-div" class="input-div-styles">
+                <p>{{ questionInfo }}</p>
+                <div class="floating">
+                    <input required id="challengeQuestion" class="floating-input" name="challengeQuestion"
+                        formControlName="challengeQuestion" type="text" placeholder="Enter the question...">
+                    <label for="challengeQuestion" class="floating-label" data-content="Enter the question..."></label>
+                </div>
+
+                <p
+                    *ngIf="sendForm.controls['challengeQuestion'].invalid && (sendForm.controls['challengeQuestion'].dirty || sendForm.controls['challengeQuestion'].touched)">
+                    {{ questionNoData }}
+                </p>
+
+                <p
+                    *ngIf="sendForm.controls['challengeQuestion'].valid && (sendForm.controls['challengeQuestion'].dirty || sendForm.controls['challengeQuestion'].touched)">
+                    {{ questionData }}
+                </p>
+            </div>
+
+            <hr class="center-square">
+
+            <div id="challenge-answer-div" class="input-div-styles">
+                <p>{{ answerInfo }}</p>
+                <div class="floating">
+                    <input required id="challengeAnswer" class="floating-input" name="challengeAnswer"
+                        formControlName="challengeAnswer" type="text" placeholder="Enter the answer...">
+                    <label for="challengeAnswer" class="floating-label" data-content="Enter the answer... "></label>
+                </div>
+
+                <p
+                    *ngIf="sendForm.controls['challengeAnswer'].invalid && (sendForm.controls['challengeAnswer'].dirty || sendForm.controls['challengeAnswer'].touched)">
+                    {{ answerNoData }}
+                </p>
+
+                <p
+                    *ngIf="sendForm.controls['challengeAnswer'].valid && (sendForm.controls['challengeAnswer'].dirty || sendForm.controls['challengeAnswer'].touched)">
+                    {{ answerData }}
+                </p>
+            </div>
+
+            <hr class="center-square">
+
+            <div id="msg-body-div" class="input-div-styles">
+                <p>{{ msgInfo }}</p>
+                <div id="textarea-div">
+                    <textarea required id="msgBody" name="msgBody" formControlName="msgBody"
+                        placeholder="Enter the message..."></textarea>
+                </div>
+
+                <p
+                    *ngIf="sendForm.controls['msgBody'].invalid && (sendForm.controls['msgBody'].dirty || sendForm.controls['msgBody'].touched)">
+                    {{ msgNoData }}
+                </p>
+
+                <p
+                    *ngIf="sendForm.controls['msgBody'].valid && (sendForm.controls['msgBody'].dirty || sendForm.controls['msgBody'].touched)">
+                    {{ msgData }}
+                </p>
+            </div>
+
+            <div class="send-form-button-div">
+                <button class="btn" (click)="getRandomMessages()">
+                    <span>Random</span>
+                </button>
+
+                <button class="btn" (click)="onSubmit()">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="response-confirmation-div" *ngIf="requestStatus===true">
+        <p>Hooray!!! Your message is created. 🤟</p>
+        <p>
+            Please share this link with the person whom this message was intended for:
+        </p>
+        <p class="url-link"><a href="{{ messageURL }}" target="_blank" rel="noreferrer noopener">{{ messageURL }}</a>
+        </p>
+        <p>
+            Also, share this unique token:
+        </p>
+        <p>
+            <input id="unique-token" type="text" value="{{ uniqueToken }}" #tokeninput>
+            <button id="copy-to-cb-button" class="btn" (click)="copyToken(tokeninput)">Copy</button>
+        </p>
+        <p>Here's hoping your message made someone's day. 😇 We appreciate you for taking this time off to thank someone
+            near and dear to you. 👌</p>
+        <p>If you wish to extend this fun and awesome activity of thanking others, look no futher. 🤠 Get started again
+            at
+            <span class="highlight" (click)="reloadCurrentRoute()">Send.</span></p>
+    </div>
+
+    <app-footer></app-footer>
+</div>

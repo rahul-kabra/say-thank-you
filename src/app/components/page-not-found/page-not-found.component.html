@@ -1,0 +1,13 @@
+<div class="container">
+    <app-navbar></app-navbar>
+
+    <div id="page-not-found-div" class="custom-top-margin">
+        <h1>4😶4</h1>
+        <h3>Page Not Found</h3>
+        <p>You seem to have hit an unexpected hurdle. 😵</p>
+        <p *ngIf="isExpectedPath === true">From what we understand 💡, you might want to go to the <a class="highlight"
+                [routerLink]="path">"{{ path }}"</a> page.</p>
+    </div>
+
+    <app-footer></app-footer>
+</div>

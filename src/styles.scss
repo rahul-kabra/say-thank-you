@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    /* Site styles */
+    --bg: #F17A7E;
+    --color: #fff;
+    --font: 'Quando', serif;
+    --sunshine: #FFF0A3;
+    --steel: #4a6163;
+    --cherry: #E45865;
+
+    /* Floating input styles */
+    --color-accent: #4a6163;
+    --input-border: rgba(0, 0, 0, 0.42);
+    --label-color: #222;
+}
+
+/* Firefox Scrollbar Hack */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--steel) var(--sunshine);
+}
+
+/* Chrome/Edge/Safari Scrollbar Hack */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sunshine);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--steel);
+    border-radius: 20px;
+    border: 3px solid var(--sunshine);
+}
+
+html {
+    height: 95%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--color);
+    font-family: var(--font);
+    height: 95%;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 10%;
+    position: relative;
+    margin: 30px auto;
+
+    &.center-square {
+        background: var(--sunshine);
+
+        &:before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--sunshine);
+            display: inline-block;
+            border: 2px solid var(--sunshine);
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            margin: 0 0 0 -3px;
+        }
+    }
+}
+
+.floating {
+    margin-bottom: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.floating-input {
+    padding: 0.8rem 1rem 0.6rem;
+    font-size: 1rem;
+    border-bottom: 0.1rem solid var(--input-border);
+    transition: border-color 0.2s ease;
+    caret-color: var(--color-accent);
+}
+
+.floating-input::placeholder {
+    color: rgba(0, 0, 0, 0);
+}
+
+.floating-label {
+    display: block;
+    position: relative;
+    max-height: 0;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.floating-label::before {
+    color: var(--label-color);
+    content: attr(data-content);
+    display: inline-block;
+    filter: blur(0);
+    backface-visibility: hidden;
+    transform-origin: top;
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.floating-label::after {
+    bottom: 1rem;
+    content: "";
+    height: 0.1rem;
+    position: absolute;
+    transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    opacity: 0;
+    left: 0;
+    top: 100%;
+    margin-top: -0.1rem;
+    transform: scale3d(0, 1, 1);
+    width: 100%;
+    background-color: var(--color-accent);
+}
+
+.floating-input:focus+.floating-label::after {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+}
+
+.floating-input:placeholder-shown+.floating-label::before {
+    transform: translate3d(0, -2.2rem, 0) scale3d(1, 1, 1);
+}
+
+.floating-label::before,
+.floating-input:focus+.floating-label::before {
+    transform: translate3d(0, -3.12rem, 0) scale3d(0.82, 0.82, 1);
+}
+
+.floating__input:focus+.floating__label::before {
+    color: var(--color-accent);
+}
+
+input {
+    background: none;
+    border-width: 0;
+}
+
+.form-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.btn {
+    background: var(--steel);
+    border: solid 2px var(--cherry);
+    color: var(--sunshine);
+    width: 105px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+
+    &:hover {
+        background: var(--sunshine);
+        color: var(--steel);
+    }
+}
+
+.flair {
+    width: 65%;
+    height: 30px;
+    border-style: double;
+    border-color: var(--sunshine);
+    border-width: 3px 0 0 0;
+}
+
+.custom-top-margin {
+    margin-top: 50px;
+}
+
+.highlight {
+    line-height: 1.2;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 25%;
+        width: 75%;
+        top: 18px;
+        position: absolute;
+        background-color: var(--sunshine);
+        z-index: -1;
+        transition: 0.5s width cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover:before {
+        width: 100%;
+    }
+}

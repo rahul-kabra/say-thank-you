@@ -1,0 +1,67 @@
+<div class="container">
+    <app-navbar></app-navbar>
+
+    <div id="no-token-div" class="custom-top-margin" *ngIf="tokenPassed === false">
+        {{ noTokenPassedMessage }}
+    </div>
+
+    <div id="invalid-token-div" class="custom-top-margin" *ngIf="tokenPassed === true && isError === true">
+        <p>{{ tokenInvalidMessage }}</p>
+    </div>
+
+    <div class="form-input custom-top-margin" *ngIf="tokenPassed === true && isError === false">
+        <form [formGroup]="receiveForm" (ngSubmit)="onSubmit()" novalidate>
+
+            <p>{{ personInfo }}</p>
+
+            <hr class="flair">
+
+            <div id="secret-code-div" class="input-div-styles">
+                <p>{{ secretCodeInfo }}</p>
+                <div class="floating">
+                    <input required id="secretCode" class="floating-input" name="secretCode"
+                        formControlName="secretCode" type="text" placeholder="Enter the code..." />
+                    <label for="secretCode" class="floating-label" data-content="Enter the code..."></label>
+                </div>
+            </div>
+
+            <hr class="center-square">
+
+            <div id="challenge-answer-div" class="input-div-styles">
+                <p>{{ fromPerson }} believes that you should be able to answer this fun question and we sure hope so
+                    too. 🤞</p>
+                <p>{{ challengeQuestion }}</p>
+                <div class="floating">
+                    <input id="challengeAnswer" class="floating-input" name="challengeAnswer"
+                        formControlName="challengeAnswer" type="text" placeholder="Enter the answer..." />
+                    <label for="challengeAnswer" class="floating-label" data-content="Enter the answer..."></label>
+                </div>
+            </div>
+
+            <div class="receive-form-button-div">
+                <button type="submit" [disabled]="!receiveForm.valid" class="btn" (click)="openOverlay()">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <app-footer></app-footer>
+
+    <div class="overlay" id="overlay">
+        <nav class="overlay-menu">
+            <p *ngIf="isSubmitError === false">Hola, {{ toPerson }} 😎</p>
+            <p id="actual-message" *ngIf="isSubmitError === false">{{ message }}</p>
+            <p *ngIf="isSubmitError === false">Cheers, {{ fromPerson }} 🥳</p>
+            <hr *ngIf="isSubmitError === false" class="flair">
+            <p *ngIf="isSubmitError === false">If you loved this and want to reciprocate the same feeling to
+                {{ fromPerson }}
+                😊, look no futher. 🤠 Get started again at <span class="highlight"
+                    (click)="navigateToSend()">Send.</span></p>
+            <p *ngIf="isSubmitError === true && isSubmitIncorrectSecretCode === true">{{ incorrectSecretCode }}</p>
+            <p *ngIf="isSubmitError === true && isSubmitIncorrectSecretCode === false">{{ incorrectAnswer }}</p>
+            <br>
+            <button id="overlay-close-button" class="btn" (click)="closeOverlay()"><span>Close</span></button>
+        </nav>
+    </div>
+</div>
