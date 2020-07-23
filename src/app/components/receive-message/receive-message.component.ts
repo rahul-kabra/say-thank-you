@@ -74,7 +74,7 @@ export class ReceiveMessageComponent implements OnInit {
     this.receiveService.getMessage(secretCode, answer).subscribe(
       (response: any) => {
         this.message = response.msgBody;
-        this.typewriterEffect(this.message);
+        this.typewriterEffect(response.msgBody);
         this.isSubmitError = false;
       },
       (error: any) => {
