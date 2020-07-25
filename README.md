@@ -1,27 +1,22 @@
-# SayThankYou
+# Say Thank You - A fun way to send thank you notes 🎉
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+We all have people in our lives who unconditionally support us all our life. Their importance is our life is inevitable and their presence in our life makes it all the more wonderful. Let us take some time out and pen an emotional note 💌 to our near and dear ones thanking them for all that they did for us, bring a smile to their faces and brighten ☀️ up their life.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Ah, the nitty gritty of it!
 
-## Code scaffolding
+Once you have composed ✍️ your wonderful heartfelt message, a special link along with a unique token would be generated. Share it with the person whom you want to send your thanks to. Add a dash of personal touch to it by setting up a witty question 😉 and an equally headscratching answer which you think only the intended recepient would be able to answer and make it more fun and exciting. 🎁
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+#### Here's what powers it...
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**Angular** makes up the frontend. **SpringBoot** powers the backend application logic and you can find it [here](https://github.com/rahul-kabra/say-thank-you-backend). **MySQL** stores all your emotional thank you notes in its vault. **Github** and **PCF** help us in serving this to you. There you go, all the magic out in the open. 🔮
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+######
 
-## Running end-to-end tests
+Don't believe it? Well, check out these [screenshots](https://github.com/rahul-kabra/say-thank-you/blob/master/src/assets/) and be amazed. 🤩
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+That's all folks! Go, make someone happy today. 😊
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Served with ❤️ by Rahul
