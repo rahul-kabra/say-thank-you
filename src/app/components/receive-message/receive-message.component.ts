@@ -73,8 +73,8 @@ export class ReceiveMessageComponent implements OnInit {
     let answer = (challengeAnswer.trim() === "" || challengeAnswer === null ? ANONYMOUS_ANSWER : challengeAnswer);
     this.receiveService.getMessage(secretCode, answer).subscribe(
       (response: any) => {
-        this.message = response.msgBody;
-        this.typewriterEffect(response.msgBody);
+        this.message = response.data;
+        this.typewriterEffect(response.data);
         this.isSubmitError = false;
       },
       (error: any) => {
@@ -100,7 +100,7 @@ export class ReceiveMessageComponent implements OnInit {
   }
 
   typewriterEffect(data: string) {
-    var modifiedData = data.split("");
+    let modifiedData = data.split("");
     let result = "";
     for (let i = 0; i < modifiedData.length; i++) {
       setTimeout(function () {
