@@ -12,6 +12,7 @@ Once you have composed ✍️ your wonderful heartfelt message, a special link a
 
 **Angular** makes up the frontend. **SpringBoot** powers the backend application logic and you can find it [here](https://github.com/rahul-kabra/say-thank-you-backend). **MySQL** stores all your emotional thank you notes in its vault. **Github** and **PCF** help us in serving this to you. There you go, all the magic out in the open. 🔮
 
+![Say Thank You](https://github.com/rahul-kabra/say-thank-you/blob/master/src/assets/Screenshot_1.png)
 
 ######
 
