@@ -16,6 +16,6 @@ deploy:
   provider: pages
   skip-cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/Say-Thank-You
+  local_dir: dist/SayThankYou
   on:
     branch: master
