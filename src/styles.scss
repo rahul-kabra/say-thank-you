@@ -46,28 +46,21 @@ body {
     height: 95%;
 }
 
-hr {
-    border: 0;
-    height: 1px;
-    width: 10%;
-    position: relative;
+hr.center-square {
+    border-top: 1px solid var(--sunshine);
+    width: 25%;
     margin: 30px auto;
+    color: var(--sunshine);
 
-    &.center-square {
-        background: var(--sunshine);
-
-        &:before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: var(--sunshine);
-            display: inline-block;
-            border: 2px solid var(--sunshine);
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            margin: 0 0 0 -3px;
-        }
+    &::after {
+        background: none repeat scroll 0% 0% var(--sunshine);
+        content: "";
+        height: 10px;
+        left: 50%;
+        margin: -5px auto auto -5px;
+        position: absolute;
+        transform: rotate(45deg);
+        width: 10px;
     }
 }
 
@@ -82,6 +75,12 @@ hr {
     border-bottom: 0.1rem solid var(--input-border);
     transition: border-color 0.2s ease;
     caret-color: var(--color-accent);
+    width: 50%;
+    text-align: center;
+}
+
+.floating-input {
+    outline: none !important;
 }
 
 .floating-input::placeholder {
