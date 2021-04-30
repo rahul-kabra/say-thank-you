@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-  readonly baseUrl: string = 'https://saythankyou.cfapps.io';
+  readonly baseUrl: string = 'http://saythankyoubackend-env.eba-6yhfek2e.us-east-2.elasticbeanstalk.com';
 
   constructor(private http: HttpClient) {
 
